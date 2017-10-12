@@ -11,7 +11,7 @@ class MoviesController < ApplicationController
   end
 
   def create
-    Movie.create(title: params[:movie][:title], description: params[:movie][:description])
+    Movie.create(movie_params)
     redirect_to "/movies"
   end
 
@@ -20,11 +20,13 @@ class MoviesController < ApplicationController
   end
 
   def update
-    movie = Movie.update(params[:id], { title: params[:movie][:title], description: params[:movie][:description] })
+    movie = Movie.update(params[:id], movie_params)
     redirect_to "/movies/#{movie.id}"
   end
 
-  def destroy
-    binding.pry
+  private
+
+  def movie_params
+    params.require(:movie).permit(:title, :description)
   end
 end
