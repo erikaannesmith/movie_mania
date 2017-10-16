@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "post to movies" do
-  it "can create a new movie with title and description" do
+  xit "can create a new movie with title and description" do
     visit "/movies/new"
 
     fill_in "movie[title]", with: "Dumbo"
