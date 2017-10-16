@@ -1,6 +1,10 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all
+    if params[:director_id]
+      @movies = Movie.where(director_id: params[:director_id])
+    else
+      @movies = Movie.all
+    end
   end
 
   def show
@@ -8,11 +12,14 @@ class MoviesController < ApplicationController
   end
 
   def new
+    @director = Director.find(params[:director_id])
+    @movie    = Movie.new
   end
 
   def create
-    Movie.create(movie_params)
-    redirect_to "/movies"
+    director = Director.find(params[:director_id])
+    director.movies.create(movie_params)
+    redirect_to "/directors/#{director.id}/movies"
   end
 
   def edit
