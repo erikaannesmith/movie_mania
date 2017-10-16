@@ -6,13 +6,13 @@ describe "user can edit a movie" do
 
     movie = Movie.create(title: "Milk Money", description: "Not suitable for children", director: director)
 
-    visit "/movies/#{movie.id}/edit"
+    visit edit_movie_path(movie)
 
     fill_in "movie[title]", with: "Django"
 
     click_on "Update Movie"
 
-    expect(current_path).to eq("/movies/#{movie.id}")
+    expect(current_path).to eq(movie_path(movie))
     expect(page).to have_content("Django")
   end
 end

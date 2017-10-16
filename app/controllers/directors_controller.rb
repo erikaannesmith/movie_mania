@@ -1,11 +1,11 @@
 class DirectorsController < ApplicationController
   def new
-    @director = Director.new 
+    @director = Director.new
   end
 
   def create
     @director = Director.create(director_params)
-    redirect_to "/directors/#{@director.id}"
+    redirect_to director_path(@director)
   end
 
   def show

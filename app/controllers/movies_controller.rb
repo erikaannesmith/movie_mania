@@ -19,7 +19,7 @@ class MoviesController < ApplicationController
   def create
     director = Director.find(params[:director_id])
     director.movies.create(movie_params)
-    redirect_to "/directors/#{director.id}/movies"
+    redirect_to director_movies_path(director)
   end
 
   def edit
@@ -28,7 +28,8 @@ class MoviesController < ApplicationController
 
   def update
     movie = Movie.update(params[:id], movie_params)
-    redirect_to "/movies/#{movie.id}"
+    redirect_to movie_path(movie)
+
   end
 
   private
