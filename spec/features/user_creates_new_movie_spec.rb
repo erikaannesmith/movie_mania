@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "post to movies" do
   it "can create a new movie with title and description" do
-    director = Director.create(name: "Ilana Corson")
+    director = create(:director)
 
     visit new_director_movie_path(director)
 

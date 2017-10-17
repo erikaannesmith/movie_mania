@@ -2,9 +2,9 @@ require 'rails_helper'
 
 describe "user can edit a movie" do
   it "user edits title" do
-    director = Director.create(name: "Ilana Corson")
+    director = create(:director)
 
-    movie = Movie.create(title: "Milk Money", description: "Not suitable for children", director: director)
+    movie = create(:movie, director: director)
 
     visit edit_movie_path(movie)
 

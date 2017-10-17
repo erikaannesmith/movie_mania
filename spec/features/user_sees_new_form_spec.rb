@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "user can see new form" do
   it "new form can be seen" do
-    director = Director.create(name: "Ilana Corson")
+    director = create(:director)
 
     visit new_director_movie_path(director)
 

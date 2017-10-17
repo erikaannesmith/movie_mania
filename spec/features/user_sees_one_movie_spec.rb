@@ -2,8 +2,8 @@ require 'rails_helper'
 
 describe "user sees one movie" do
   it "user sees one with title and description" do
-    director = Director.create(name: "Ilana Corson")
-    movie = Movie.create(title: "Drop Dead Fred", description: "An imaginary friend gets SUPER WEIRD", director: director)
+    director = create(:director)
+    movie = create(:movie, director: director)
 
     visit movie_path(movie)
 
