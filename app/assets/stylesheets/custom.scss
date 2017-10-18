@@ -1,0 +1,22 @@
+$custom-border: 3px dotted purple;
+$custom-color: #80f442;
+body {
+  h1 {
+    border: $custom-border;
+    text: {
+      align: center;
+      decoration: line-through;
+    }
+  }
+  ul {
+    border: $custom-border;
+    .title {
+      color: $custom-color;
+      font-weight: bold;
+    }
+
+    .description {
+      color: $custom-color;
+    }
+  }
+}
